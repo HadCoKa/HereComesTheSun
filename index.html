@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather&#127744;Now</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alkatra&family=Chivo+Mono:wght@200&family=Comfortaa&family=Irish+Grover&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/1ba0118f4e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="city-name">Byron Bay</h1>
+      <h2 id="date-today">Monday, 24 April</h2>
+
+      <div class="row current">
+        <div class="col-6 now">
+          <div>Now</div>
+          <div><i class="fa-solid fa-cloud-sun cloudSun"></i></div>
+          <span class="temperture" id="tempNumber">21 </span>
+          <span class="units">
+            <a href="#" id="cel-click"> &deg C </a> |
+            <a href="#" id="fahr-click"> &deg F </a>
+          </span>
+        </div>
+
+        <div class="col-6 detailed">
+          <div>Cloudy</div>
+          <div>precipitation: 14%</div>
+          <div>Humidity: 73%</div>
+          <div>Wind: 40 km/h</div>
+        </div>
+      </div>
+      <div class="row forecast">
+        <div class="col-2">
+          <div>Mon</div>
+          <div><i class="fa-solid fa-cloud-rain cloudRain"></i></div>
+          <div>22&deg; 19&deg;</div>
+        </div>
+
+        <div class="col-2">
+          <div>Tue</div>
+          <div><i class="fa-solid fa-cloud-sun cloudSun"></i></div>
+          <div>23&deg; 17&deg;</div>
+        </div>
+
+        <div class="col-2">
+          <div>Wed</div>
+          <div><i class="fa-solid fa-cloud-rain cloudRain"></i></div>
+          <div>23&deg; 17&deg;</div>
+        </div>
+
+        <div class="col-2">
+          <div>Thu</div>
+          <div><i class="fa-solid fa-cloud-rain cloudRain"></i></div>
+          <div>22&deg; 17&deg;</div>
+        </div>
+
+        <div class="col-2">
+          <div>Fri</div>
+          <div><i class="fa-solid fa-cloud-rain cloudRain"></i></div>
+          <di>23&deg; 16&deg;</di>
+        </div>
+
+        <div class="col-2">
+          <div>Sat</div>
+          <div><i class="fa-solid fa-cloud-sun cloudSun"></i></div>
+          <div>24&deg; 17&deg;</div>
+        </div>
+      </div>
+      <div class="searchBar">
+        <form>
+          <input
+            type="text"
+            class="inputCity"
+            placeholder="Type city name"
+            id="val-city"
+          />
+          <input
+            type="submit"
+            value="search"
+            class="btn searchCity"
+            id="btn-search-city"
+          />
+          <input
+            type="submit"
+            value="My location"
+            class="btn location"
+            id="btn-my-location"
+          />
+        </form>
+      </div>
+    </div>
+    <script src="src/api.js"></script>
+    <script src="src/script.js"></script>
+  </body>
+</html>

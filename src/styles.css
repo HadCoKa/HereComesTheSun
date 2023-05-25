@@ -1,0 +1,79 @@
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  font-size: 24px;
+}
+.container {
+  background-color: rgb(253, 253, 195);
+  width: 800px;
+  margin: 60px auto;
+  border-radius: 6px;
+}
+h1 {
+  text-align: center;
+  font-weight: 700;
+  color: rgb(3, 121, 148);
+  margin-top: 20px;
+}
+h2 {
+  text-align: center;
+  color: rgb(119, 7, 3);
+}
+
+.current {
+  margin: 50px auto 50px auto;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+.units {
+  font-size: 18px;
+}
+.detailed {
+  font-size: 18px;
+}
+
+.forecast {
+  margin-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  font-size: 18px;
+}
+.cloudSun {
+  color: rgb(252, 63, 43);
+}
+.cloudRain {
+  color: rgb(7, 196, 203);
+}
+.searchBar {
+  margin: auto auto 20px auto;
+  align-items: center;
+  justify-content: center;
+
+  display: flex;
+}
+.searchCity {
+  width: 120px;
+  height: 100%;
+  background-color: rgb(252, 63, 43);
+  border-color: rgb(3, 121, 148);
+}
+.searchCity:hover {
+  background-color: rgb(7, 196, 203);
+  border-color: rgb(119, 7, 3);
+}
+.location {
+  height: 100%;
+  background-color: rgb(7, 196, 203);
+  border-color: rgb(119, 7, 3);
+}
+.location:hover {
+  background-color: rgb(252, 63, 43);
+  border-color: rgb(3, 121, 148);
+}
+.inputCity {
+  border-radius: 8px;
+  height: auto;
+}
