@@ -4,7 +4,8 @@ body {
   font-size: 24px;
 }
 .container {
-  background-color: rgb(253, 253, 195);
+  /* background-color: rgb(253, 253, 195); */
+  background: content-box radial-gradient(#fa4367, skyblue);
   width: 800px;
   margin: 60px auto;
   border-radius: 6px;
