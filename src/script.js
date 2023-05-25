@@ -19,3 +19,5 @@ let day = days[now.getDay()];
 console.log(days);
 
 h2New.innerHTML = `${day} ${hours}:${String(minutes).padStart(2, 0)}`;
+
+// time according to location- connect to api
