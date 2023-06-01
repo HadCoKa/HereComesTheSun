@@ -27,14 +27,14 @@
   </head>
   <body>
     <div class="container">
-      <h1 id="city-name">Byron Bay</h1>
+      <h1 id="city-name">...</h1>
       <h2 id="date-today">Monday, 24 April</h2>
 
       <div class="row current">
         <div class="col-6 now">
-          <div>Now</div>
+          <div class="generalDescription" id="description">...</div>
           <div><i class="fa-solid fa-cloud-sun cloudSun"></i></div>
-          <span class="temperture" id="tempNumber">21 </span>
+          <span class="temperture" id="tempNumber">... </span>
           <span class="units">
             <a href="#" id="cel-click"> &deg C </a> |
             <a href="#" id="fahr-click"> &deg F </a>
@@ -42,10 +42,9 @@
         </div>
 
         <div class="col-6 detailed">
-          <div>Cloudy</div>
-          <div>precipitation: 14%</div>
-          <div>Humidity: 73%</div>
-          <div>Wind: 40 km/h</div>
+          <!-- <div>precipitation: %</div> -->
+          <div>Humidity: <span id="humidityNumber"></span>%</div>
+          <div>Wind: <span id="windNumber"></span>km/h</div>
         </div>
       </div>
       <div class="row forecast">

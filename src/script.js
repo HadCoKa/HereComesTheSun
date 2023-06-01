@@ -2,9 +2,15 @@ let h2New = document.querySelector("#date-today");
 let now = new Date();
 console.log(now);
 let hours = now.getHours();
-console.log(hours);
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+// console.log(hours);
 let minutes = now.getMinutes();
-console.log(minutes);
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+// console.log(minutes);
 
 let days = [
   "Sunday",
@@ -18,6 +24,7 @@ let days = [
 let day = days[now.getDay()];
 console.log(days);
 
-h2New.innerHTML = `${day} ${hours}:${String(minutes).padStart(2, 0)}`;
+// h2New.innerHTML = `${day} ${hours}:${String(minutes).padStart(2, 0)}`;
+h2New.innerHTML = `${day} ${hours}:${minutes}`;
 
 // time according to location- connect to api

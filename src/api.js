@@ -11,6 +11,18 @@ function showData(response) {
   let location = response.data.name;
   let locationElement = document.querySelector("#city-name");
   locationElement.innerHTML = location;
+
+  let weatherDescription = response.data.weather[0].description;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = weatherDescription;
+
+  let humidity = response.data.main.humidity;
+  let humidityElement = document.querySelector("#humidityNumber");
+  humidityElement.innerHTML = humidity;
+
+  let windSpeed = response.data.wind.speed;
+  let windElement = document.querySelector("$windNumber");
+  windElement.innerHTML = windSpeed;
 }
 
 function showMyLocation(position) {
@@ -27,6 +39,7 @@ function goMyLocation(event) {
 
 let btnMyLoaction = document.querySelector("#btn-my-location");
 btnMyLoaction.addEventListener("click", goMyLocation);
+window.addEventListener("load", goMyLocation);
 
 //
 
