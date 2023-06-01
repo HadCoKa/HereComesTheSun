@@ -21,7 +21,7 @@ function showData(response) {
   humidityElement.innerHTML = humidity;
 
   let windSpeed = response.data.wind.speed;
-  let windElement = document.querySelector("$windNumber");
+  let windElement = document.querySelector("#windNumber");
   windElement.innerHTML = windSpeed;
 }
 
