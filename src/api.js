@@ -23,9 +23,16 @@ function showData(response) {
   let windSpeed = response.data.wind.speed;
   let windElement = document.querySelector("#windNumber");
   windElement.innerHTML = windSpeed;
-}
 
-function showMyLocation(position) {
+  let iconElement = document.querySelector("#nowIcon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+}
+//
+
+https: function showMyLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiUrl1 = `${apiEndPoint}&lat=${lat}&lon=${lon}&units=metric`;
