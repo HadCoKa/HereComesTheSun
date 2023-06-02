@@ -5,7 +5,7 @@ body {
 }
 .container {
   /* background-color: rgb(253, 253, 195); */
-  background: content-box radial-gradient(#fa4367, skyblue);
+  background: content-box radial-gradient(#ff9800, skyblue);
   width: 800px;
   margin: 60px auto;
   border-radius: 6px;
@@ -58,20 +58,20 @@ a {
 .searchCity {
   width: 120px;
   height: 100%;
-  background-color: rgb(252, 63, 43);
+  background-color: #ff9800;
   border-color: rgb(3, 121, 148);
 }
 .searchCity:hover {
-  background-color: rgb(7, 196, 203);
-  border-color: rgb(119, 7, 3);
+  background-color: rgb(3, 121, 148);
+  border-color: rgb(249, 94, 11);
 }
 .location {
   height: 100%;
   background-color: rgb(7, 196, 203);
-  border-color: rgb(119, 7, 3);
+  border-color: rgb(249, 94, 11);
 }
 .location:hover {
-  background-color: rgb(252, 63, 43);
+  background-color: rgb(249, 94, 11);
   border-color: rgb(3, 121, 148);
 }
 .inputCity {
