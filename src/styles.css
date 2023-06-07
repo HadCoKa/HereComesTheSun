@@ -8,6 +8,7 @@ body {
   background: content-box radial-gradient(#ff9800, skyblue);
   width: 800px;
   margin: 60px auto;
+
   border-radius: 6px;
 }
 h1 {
@@ -81,4 +82,5 @@ a {
 .openSourceLink {
   text-align: center;
   font-size: small;
+  margin-bottom: 10px;
 }
