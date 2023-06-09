@@ -77,9 +77,7 @@ function showData(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
-//
-
-https: function showMyLocation(position) {
+function showMyLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiUrl1 = `${apiEndPoint}&lat=${lat}&lon=${lon}&units=metric`;
