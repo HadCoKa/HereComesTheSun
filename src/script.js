@@ -28,6 +28,7 @@ console.log(days);
 h2New.innerHTML = `${day} ${hours}:${minutes}`;
 
 let celsiusTemperature = null;
+showForecast();
 
 function changeToFahr(event) {
   event.preventDefault();
@@ -44,6 +45,30 @@ function changeToCel(event) {
 }
 let celsius = document.querySelector("#cel-click");
 celsius.addEventListener("click", changeToCel);
+
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div id="forecastDay">${day}</div>
+        <div>
+          <img id="forecastIcon" />
+        </div>
+        <div class="forecastTemp">
+          <span class="forecastTempMax">22&deg; </span>
+          <span class="forecastTempMin">19&deg;</span>
+        </div>
+      </div>
+    `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 let apiKey = "cd90c6f3fd9d22eae41f4d585111003f";
 let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;

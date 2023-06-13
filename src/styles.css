@@ -36,19 +36,23 @@ a {
   font-size: 18px;
 }
 
-.forecast {
+.weatheForecast {
   margin-bottom: 50px;
   padding-left: 50px;
   padding-right: 50px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
 }
-.cloudSun {
-  color: rgb(252, 63, 43);
+
+.forecastTempMin {
+  opacity: 0.5;
 }
+/* .cloudSun {
+  /* color: rgb(252, 63, 43); */
+/* }
 .cloudRain {
-  color: rgb(7, 196, 203);
-}
+  color: rgb(7, 196, 203); */
+/* } */
 .searchBar {
   margin: auto auto 20px auto;
   align-items: center;
