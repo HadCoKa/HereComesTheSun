@@ -1,3 +1,4 @@
+// current day & hour
 let h2New = document.querySelector("#date-today");
 let now = new Date();
 console.log(now);
@@ -5,12 +6,11 @@ let hours = now.getHours();
 if (hours < 10) {
   hours = `0${hours}`;
 }
-// console.log(hours);
+
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-// console.log(minutes);
 
 let days = [
   "Sunday",
@@ -27,25 +27,7 @@ console.log(days);
 // h2New.innerHTML = `${day} ${hours}:${String(minutes).padStart(2, 0)}`;
 h2New.innerHTML = `${day} ${hours}:${minutes}`;
 
-let celsiusTemperature = null;
-showForecast();
-
-function changeToFahr(event) {
-  event.preventDefault();
-  let click2 = document.querySelector("#tempNumber");
-  click2.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
-}
-let fahrenheit = document.querySelector("#fahr-click");
-fahrenheit.addEventListener("click", changeToFahr);
-
-function changeToCel(event) {
-  event.preventDefault();
-  let click = document.querySelector("#tempNumber");
-  click.innerHTML = Math.round(celsiusTemperature);
-}
-let celsius = document.querySelector("#cel-click");
-celsius.addEventListener("click", changeToCel);
-
+// forecast:
 function showForecast() {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
@@ -70,25 +52,37 @@ function showForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
-let apiKey = "cd90c6f3fd9d22eae41f4d585111003f";
-let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}`;
+showForecast();
+let celsiusTemperature = null;
+// api call:
+
+let apiKey = "fbao77f9255b7930d3811t64639ef145";
+let apiEndPoint = `https://api.shecodes.io/weather/v1/current?key=${apiKey}`;
 
 // show the data after clicking search/myloacation:
+function showMyLocation(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiUrl1 = `${apiEndPoint}&lat=${lat}&lon=${lon}&units=metric`;
+  axios.get(apiUrl1).then(showData);
+}
+
 function showData(response) {
-  celsiusTemperature = response.data.main.temp;
+  // console.log(response);
+  celsiusTemperature = response.data.temperature.current;
 
   let tempElement = document.querySelector("#tempNumber");
   tempElement.innerHTML = Math.round(celsiusTemperature);
 
-  let location = response.data.name;
+  let location = response.data.city;
   let locationElement = document.querySelector("#city-name");
   locationElement.innerHTML = location;
 
-  let weatherDescription = response.data.weather[0].description;
+  let weatherDescription = response.data.condition.description;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = weatherDescription;
 
-  let humidity = response.data.main.humidity;
+  let humidity = response.data.temperature.humidity;
   let humidityElement = document.querySelector("#humidityNumber");
   humidityElement.innerHTML = humidity;
 
@@ -97,16 +91,7 @@ function showData(response) {
   windElement.innerHTML = Math.round(windSpeed);
 
   let iconElement = document.querySelector("#nowIcon");
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-}
-function showMyLocation(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiUrl1 = `${apiEndPoint}&lat=${lat}&lon=${lon}&units=metric`;
-  axios.get(apiUrl1).then(showData);
+  iconElement.setAttribute("src", response.data.condition.icon_url);
 }
 
 function goMyLocation(event) {
@@ -123,9 +108,25 @@ window.addEventListener("load", goMyLocation);
 function showWeatherByCity(event) {
   event.preventDefault();
   let inputCityVal = document.querySelector("#val-city").value;
-  let apiUrl2 = `${apiEndPoint}&q=${inputCityVal}&units=metric`;
+  let apiUrl2 = `${apiEndPoint}&query=${inputCityVal}&units=metric`;
   axios.get(apiUrl2).then(showData);
 }
 
 let btnSearchCity = document.querySelector("#btn-search-city");
 btnSearchCity.addEventListener("click", showWeatherByCity);
+
+function changeToFahr(event) {
+  event.preventDefault();
+  let click2 = document.querySelector("#tempNumber");
+  click2.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+}
+let fahrenheit = document.querySelector("#fahr-click");
+fahrenheit.addEventListener("click", changeToFahr);
+
+function changeToCel(event) {
+  event.preventDefault();
+  let click = document.querySelector("#tempNumber");
+  click.innerHTML = Math.round(celsiusTemperature);
+}
+let celsius = document.querySelector("#cel-click");
+celsius.addEventListener("click", changeToCel);
