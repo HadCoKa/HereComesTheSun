@@ -28,21 +28,32 @@ console.log(days);
 h2New.innerHTML = `${day} ${hours}:${minutes}`;
 
 // forecast:
-function showForecast() {
+function getForecastDay(timestamp) {
+  let forecastDate = new Date(timestamp * 1000);
+  let forecastDayIndex = forecastDate.getDay();
+  // forecastDayIndex is a number representing the name of the day (0-6)
+  let forecastDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return forecastDay[forecastDayIndex];
+}
+
+function showForecastData(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
+  // let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let daily = response.data.daily;
+  daily.forEach(function (dailyItem) {
     forecastHTML =
       forecastHTML +
       `
       <div class="col-2">
-        <div id="forecastDay">${day}</div>
+        <div id="forecastDay">${getForecastDay(dailyItem.time)}</div>
         <div>
-          <img id="forecastIcon" />
+          <img id="forecastIcon" src=${dailyItem.condition.icon_url} />
         </div>
         <div class="forecastTemp">
-          <span class="forecastTempMax">22&deg; </span>
+          <span class="forecastTempMax">${
+            dailyItem.temperature.maximum
+          }&deg; </span>
           <span class="forecastTempMin">19&deg;</span>
         </div>
       </div>
@@ -52,22 +63,30 @@ function showForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
-showForecast();
-let celsiusTemperature = null;
-// api call:
+// showForecast();
 
+let celsiusTemperature = null;
+
+// api call:
 let apiKey = "fbao77f9255b7930d3811t64639ef145";
 let apiEndPoint = `https://api.shecodes.io/weather/v1/current?key=${apiKey}`;
+let apiEndPointForecast = `https://api.shecodes.io/weather/v1/forecast?key=${apiKey}`;
 
 // show the data after clicking search/myloacation:
 function showMyLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiUrl1 = `${apiEndPoint}&lat=${lat}&lon=${lon}&units=metric`;
-  axios.get(apiUrl1).then(showData);
+  axios.get(apiUrl1).then(showCurrentData);
+  let apiUrlForecast1 = `${apiEndPointForecast}&lat=${lat}&lon=${lon}&units=metric`;
+  axios.get(apiUrlForecast1).then(showForecastData);
 }
+// function showForecastData(response) {
+// console.log();
+// forecastTemp = response.data.daily[0].temperature.day;
+// }
 
-function showData(response) {
+function showCurrentData(response) {
   // console.log(response);
   celsiusTemperature = response.data.temperature.current;
 
@@ -109,7 +128,7 @@ function showWeatherByCity(event) {
   event.preventDefault();
   let inputCityVal = document.querySelector("#val-city").value;
   let apiUrl2 = `${apiEndPoint}&query=${inputCityVal}&units=metric`;
-  axios.get(apiUrl2).then(showData);
+  axios.get(apiUrl2).then(showCurrentData);
 }
 
 let btnSearchCity = document.querySelector("#btn-search-city");
