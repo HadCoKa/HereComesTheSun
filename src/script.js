@@ -40,7 +40,8 @@ function showForecastData(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   // let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  let daily = response.data.daily;
+  let daily = response.data.daily.slice(0, 6);
+  // console.log(daily);
   daily.forEach(function (dailyItem) {
     forecastHTML =
       forecastHTML +
@@ -51,10 +52,12 @@ function showForecastData(response) {
           <img id="forecastIcon" src=${dailyItem.condition.icon_url} />
         </div>
         <div class="forecastTemp">
-          <span class="forecastTempMax">${
+          <span class="forecastTempMax">${Math.round(
             dailyItem.temperature.maximum
-          }&deg; </span>
-          <span class="forecastTempMin">19&deg;</span>
+          )}&deg; </span>
+          <span class="forecastTempMin">${Math.round(
+            dailyItem.temperature.minimum
+          )}&deg;</span>
         </div>
       </div>
     `;
@@ -128,7 +131,9 @@ function showWeatherByCity(event) {
   event.preventDefault();
   let inputCityVal = document.querySelector("#val-city").value;
   let apiUrl2 = `${apiEndPoint}&query=${inputCityVal}&units=metric`;
+  let apiUrlForecast2 = `${apiEndPointForecast}&query=${inputCityVal}&units=metric`;
   axios.get(apiUrl2).then(showCurrentData);
+  axios.get(apiUrlForecast2).then(showForecastData);
 }
 
 let btnSearchCity = document.querySelector("#btn-search-city");
