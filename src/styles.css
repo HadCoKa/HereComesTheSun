@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Carter One", cursive;
   display: flex;
   font-size: 24px;
 }
@@ -25,15 +25,23 @@ h2 {
 .current {
   margin: 50px auto 50px auto;
   text-align: center;
+  font-size: 40px;
+  color: rgb(119, 7, 3);
 }
+
 a {
   text-decoration: none;
+}
+.active {
+  text-decoration: underline;
 }
 .units {
   font-size: 18px;
 }
 .detailed {
+  margin-top: 15px;
   font-size: 18px;
+  text-align: left;
 }
 
 .weatheForecast {

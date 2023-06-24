@@ -84,10 +84,6 @@ function showMyLocation(position) {
   let apiUrlForecast1 = `${apiEndPointForecast}&lat=${lat}&lon=${lon}&units=metric`;
   axios.get(apiUrlForecast1).then(showForecastData);
 }
-// function showForecastData(response) {
-// console.log();
-// forecastTemp = response.data.daily[0].temperature.day;
-// }
 
 function showCurrentData(response) {
   // console.log(response);

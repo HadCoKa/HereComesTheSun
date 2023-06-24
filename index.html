@@ -14,10 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alkatra&family=Chivo+Mono:wght@200&family=Comfortaa&family=Irish+Grover&family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="src/styles.css" />
     <script
       src="https://kit.fontawesome.com/1ba0118f4e.js"
@@ -31,17 +30,19 @@
       <h2 id="date-today">Monday, 24 April</h2>
 
       <div class="row current">
-        <div class="col-6 now">
-          <div class="generalDescription" id="description">...</div>
+        <div class="col-4 now"></div>
+        <div class="col-4 now">
           <div><img id="nowIcon" /></div>
-          <span class="temperture" id="tempNumber">... </span>
+          <span class="temperture" id="tempNumber">...</span>
+          <span class="degrees">&deg</span>
           <span class="units">
-            <a href="#" id="cel-click"> &deg C </a> |
-            <a href="#" id="fahr-click"> &deg F </a>
+            <a href="#" id="cel-click" class="active"> C </a> |
+            <a href="#" id="fahr-click"> F </a>
           </span>
         </div>
 
-        <div class="col-6 detailed">
+        <div class="col-4 detailed">
+          <div class="generalDescription" id="description">...</div>
           <div>Humidity: <span id="humidityNumber"></span>%</div>
           <div>Wind: <span id="windNumber"></span> km/h</div>
         </div>
