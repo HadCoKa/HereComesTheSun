@@ -69,6 +69,7 @@ function showForecastData(response) {
 // showForecast();
 
 let celsiusTemperature = null;
+let currentUnits = "C";
 
 // api call:
 let apiKey = "fbao77f9255b7930d3811t64639ef145";
@@ -139,6 +140,10 @@ function changeToFahr(event) {
   event.preventDefault();
   let click2 = document.querySelector("#tempNumber");
   click2.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+  document.querySelector("#fahr-click").classList.add("active");
+  document.querySelector("#fahr-click").classList.remove("inactive");
+  document.querySelector("#cel-click").classList.remove("active");
+  document.querySelector("#cel-click").classList.add("inactive");
 }
 let fahrenheit = document.querySelector("#fahr-click");
 fahrenheit.addEventListener("click", changeToFahr);
@@ -147,6 +152,10 @@ function changeToCel(event) {
   event.preventDefault();
   let click = document.querySelector("#tempNumber");
   click.innerHTML = Math.round(celsiusTemperature);
+  document.querySelector("#cel-click").classList.add("active");
+  document.querySelector("#cel-click").classList.remove("inactive");
+  document.querySelector("#fahr-click").classList.remove("active");
+  document.querySelector("#fahr-click").classList.add("inactive");
 }
 let celsius = document.querySelector("#cel-click");
 celsius.addEventListener("click", changeToCel);

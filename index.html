@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/styles.css" />
@@ -33,12 +33,15 @@
         <div class="col-4 now"></div>
         <div class="col-4 now">
           <div><img id="nowIcon" /></div>
-          <span class="temperture" id="tempNumber">...</span>
-          <span class="degrees">&deg</span>
-          <span class="units">
-            <a href="#" id="cel-click" class="active"> C </a> |
-            <a href="#" id="fahr-click"> F </a>
-          </span>
+          <div
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <span class="temperture" id="tempNumber">...</span>
+            <span class="units">
+              <a href="#" id="cel-click" class="active">&degC</a> |
+              <a href="#" id="fahr-click" class="inactive">&degF</a>
+            </span>
+          </div>
         </div>
 
         <div class="col-4 detailed">
