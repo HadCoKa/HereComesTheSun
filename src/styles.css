@@ -4,8 +4,8 @@ body {
   font-size: 24px;
 }
 .container {
-  /* background-color: rgb(253, 253, 195); */
-  background: content-box radial-gradient(#ff9800, skyblue);
+  background: content-box radial-gradient(rgb(7, 196, 203), #feb23f);
+
   width: 800px;
   margin: 60px auto;
 
@@ -59,12 +59,7 @@ h2 {
 .forecastTempMin {
   opacity: 0.5;
 }
-/* .cloudSun {
-  /* color: rgb(252, 63, 43); */
-/* }
-.cloudRain {
-  color: rgb(7, 196, 203); */
-/* } */
+
 .searchBar {
   margin: auto auto 20px auto;
   align-items: center;
@@ -75,7 +70,7 @@ h2 {
 .searchCity {
   width: 120px;
   height: 100%;
-  background-color: #ff9800;
+  background-color: #feb23f;
   border-color: rgb(3, 121, 148);
 }
 .searchCity:hover {
@@ -96,6 +91,12 @@ h2 {
   height: auto;
 }
 .openSourceLink {
+  text-align: center;
+  font-size: small;
+  margin-bottom: 10px;
+  color: rgb(119, 7, 3);
+}
+.openSource {
   text-align: center;
   font-size: small;
   margin-bottom: 10px;

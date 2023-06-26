@@ -7,6 +7,15 @@ if (hours < 10) {
   hours = `0${hours}`;
 }
 
+if (now.getHours() >= 6 && now.getHours() <= 18) {
+  // if (true) {
+  document.querySelector(".container").style.backgroundImage =
+    "url(glare_circles_back.jpg!d)";
+} else {
+  document.querySelector(".container").style.backgroundImage =
+    "url(nightblue.jpg!d)";
+}
+
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
